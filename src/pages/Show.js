@@ -2,7 +2,6 @@ import { useLoaderData, Form } from "react-router-dom";
 
 function Show(props) {
   const cheese = useLoaderData();
-  console.log(person);
 
   return (
     <div className="person">

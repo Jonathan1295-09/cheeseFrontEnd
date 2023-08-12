@@ -1,11 +1,11 @@
-import {createBrowserRouter, createRoutesFromElemnts, Route,} from "react-router-dom";
+import {createBrowserRouter, createRoutesFromElements, Route,} from "react-router-dom";
 import App from "./App"
 import Index from "./pages";
 import Show from "./pages/Show";
 import { cheeseloader, cheesesLoader } from "./loaders";
 import { createAction, updateAction, deleteAction} from "./actions";
 
-const router = createBrowserRouter(createRoutesFromElemnts(
+const router = createBrowserRouter(createRoutesFromElements(
     <Route path="/" element={<App/>}>
         <Route path="" element={<Index/>} loader={cheeseloader}/>
           <Route path=":id" element={<Show/>} loader={cheesesLoader}/>

@@ -9,6 +9,6 @@ export const cheeseloader = async () => {
 export const cheesesLoader = async ({params}) => {
     const id = params.id
     const response = await fetch (`${baseUrl}/cheese/${id}`)
-    const cheese = await resposne.json()
+    const cheese = await response.json()
     return cheese
 }
