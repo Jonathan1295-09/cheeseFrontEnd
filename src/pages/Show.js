@@ -1,31 +1,28 @@
-import { Link, useLoaderData, Form } from "react-router-dom";
+import { useLoaderData, Form } from "react-router-dom";
 
-function Index(props) {
-  // GET THE DATA FROM OUR LOADER
+function Show(props) {
   const cheese = useLoaderData();
+  console.log(person);
 
   return (
-    <div>
-        <h2>Create a new cheese log</h2>
-        <Form action="/create" method="post">
-            <input type="text" name="name" placeholder="person's name"/>
-            <input type="text" name="title" placeholder="person's title"/>
-            <input type="text" name="image" placeholder="person's image"/>
-            <input type="submit" value="Create Person"/>
-        </Form>
-      {people.map((cheese, index) => {
-        return (
-          <div key={person._id} className="person">
-            <Link to={`/${person._id}`}>
-              <h1>{person.name}</h1>
-            </Link>
-            <img src={person.image} alt={person.name} />
-            <h3>{person.title}</h3>
-          </div>
-        );
-      })}
+    <div className="person">
+      <h1>{cheese.name}</h1>
+      <h2>{cheese.img}</h2>
+      <img src={cheese.country} alt={cheese.name} />
+
+    <h2>Update {cheese.name}</h2>
+    <Form action={`/update/${cheese._id}`} method="post">
+        <input type="text" name="name" placeholder="cheese name" defaultValue={cheese.name}/>
+        <input type="text" name="country" placeholder="cheese origin" defaultValue={cheese.country}/>
+        <input type="text" name="image" placeholder="cheese image" defaultValue={cheese.image}/>
+        <input type="submit" value="Update Cheese"/>
+    </Form>
+    <h2>Delete cheese</h2>
+    <Form action={`/delete/${cheese._id}`} method="post">
+        <input type="submit" value="Delete cheese"/>
+    </Form>
     </div>
   );
 }
 
-export default Index;
+export default Show;
